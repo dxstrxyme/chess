@@ -1,8 +1,23 @@
+import type{ FC } from 'react';
+import type { Board } from "../modules/Board"
+import React from 'react';
+import CellComponent from './CellComponent';
 
+interface BoardProps{
+  board: Board;
+  setBoard:(board: Board)=>void;
+}
 
-function BoardComponent() {
+const BoardComponent:FC<BoardProps> = ({board , setBoard})=> {
   return (
-    <div className='board'>BoardComponent</div>
+    <div className='board'>
+      {board.cells.map((row,index)=>
+      <React.Fragment key={index}>
+        {row.map(cell=>
+          <CellComponent/>
+        )}
+      </React.Fragment>)}
+    </div>
   )
 }
 
