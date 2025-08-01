@@ -1,8 +1,15 @@
+import type { FC } from "react"
+import type { Cell } from "../modules/Cell"
 
+interface CellProps{
+  cell: Cell
+}
 
-function CellComponent() {
+const CellComponent:FC<CellProps>=({cell}) =>{
   return (
-    <div className='cell'></div>
+    <div className={['cell',cell.color].join(' ')}>
+      {cell.figure?.logo && <img src={cell.figure.logo} alt=""/>}
+    </div>
   )
 }
 
