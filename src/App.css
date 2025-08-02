@@ -38,3 +38,7 @@ background-color: brown;
 .white{
 background-color: grey;
 }
+
+.selected{
+  background-color: brown;
+}
