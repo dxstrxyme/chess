@@ -1,6 +1,6 @@
 import type{ FC } from 'react';
 import type { Board } from "../modules/Board"
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CellComponent from './CellComponent';
 import { Cell } from '../modules/Cell';
 
@@ -17,6 +17,21 @@ const BoardComponent:FC<BoardProps> = ({board , setBoard})=> {
       setSelectedCell(cell);
     } 
   }
+
+  useEffect(()=>{
+    highlightCells()
+  },[selectedCell])
+
+  function highlightCells(){
+    board.highlightCells(selectedCell);
+    updateBoard();
+  }
+
+  function updateBoard(){
+    const newBoard = board.getCopyBoard();
+    setBoard(newBoard);
+  }
+
   return (
     <div className='board'>
       {board.cells.map((row,index)=>
