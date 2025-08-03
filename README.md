@@ -1,69 +1,104 @@
-# React + TypeScript + Vite
+♟️ Chess Game - React + TypeScript
+A fully functional chess game built with React and TypeScript using object-oriented programming principles.
+✨ Features
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+✅ Complete chess rules implementation
+✅ Move validation for all pieces (King, Queen, Rook, Bishop, Knight, Pawn)
+✅ Available moves highlighting
+✅ Check and checkmate detection
+✅ Player turn switching
+✅ Captured pieces display
 
-Currently, two official plugins are available:
+🛠️ Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React
+TypeScript
+CSS
+Vite
 
-## Expanding the ESLint configuration
+⚙️ Getting Started
+bash# Clone the repository
+git clone https://github.com/dxstrxyme/chess.git
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# Navigate to the project directory
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+cd chess-game-react
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+# Install dependencies
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+npm install
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+# Start the development server
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+npm run dev
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# Build for production
+
+npm run build
+
+📁 Project Structure
+src/
+├── components/
+│ ├── BoardComponent.tsx # Chess board component
+│ ├── CellComponent.tsx # Board cell component
+│ ├── LostFigures.tsx # Captured pieces component
+│ └── Timer.tsx # Game timer component
+├── models/
+│ ├── figures/
+│ │ ├── Figure.ts # Base figure class
+│ │ ├── King.ts # King piece logic
+│ │ ├── Queen.ts # Queen piece logic
+│ │ ├── Rook.ts # Rook piece logic
+│ │ ├── Bishop.ts # Bishop piece logic
+│ │ ├── Knight.ts # Knight piece logic
+│ │ └── Pawn.ts # Pawn piece logic
+│ ├── Board.ts # Game board logic
+│ ├── Cell.ts # Board cell logic
+│ ├── Colors.ts # Color enums
+│ └── Player.ts # Player logic
+├── assets/ # Static assets
+├── App.tsx # Main application component
+├── App.css # Global styles
+└── main.tsx # Application entry point
+
+🔧 Key Implementation Features
+🧱 Architecture
+
+Object-Oriented Design – Each chess piece inherits from the base Figure class
+TypeScript Integration – Strict typing for enhanced code reliability
+Component-Based Structure – Modular React components for maintainability
+Separation of Concerns – Game logic is separated from UI components
+
+♜ Game Logic
+
+Move Validation – Each piece implements its own canMove() method
+Board State Management – Deep copy used for move checks and history
+Turn Management – Alternating players with validation
+Threat Detection – Check and checkmate logic included
+
+🚧 Future Enhancements
+
+Castling implementation
+En passant capture
+Pawn promotion
+Move history tracking
+Game timer functionality
+Save/load game state
+Sound effects
+Online multiplayer support
+
+🎮 How to Play
+
+Click on a piece to select it
+Available moves will be highlighted
+Click on a highlighted square to move
+Players take turns (white starts first)
+Capture opponent pieces by moving onto their squares
+Avoid check and checkmate to win!
+
+👨‍💻 Author
+
+Nikita Gres
+
+GitHub: @dxstrxyme
+Email: dxstrxyme@gmail.com
