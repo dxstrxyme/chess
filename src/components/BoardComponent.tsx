@@ -21,7 +21,7 @@ const BoardComponent:FC<BoardProps> = ({board , setBoard , currentPlayer , swapP
       swapPlayer();
       setSelectedCell(null);
     } else {
-      if(cell.figure?.color === currentPlayer.color){
+      if(cell.figure?.color === currentPlayer?.color){
         setSelectedCell(cell);
       }
     }
